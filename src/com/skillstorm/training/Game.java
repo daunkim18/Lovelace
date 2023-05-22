@@ -23,23 +23,21 @@ public class Game {
 		// Create the player's directory if it doesn't exist
 		File directory = new File(directoryPath);
 		if (!directory.exists()) {
-		    directory.mkdirs();
+			directory.mkdirs();
 		}
 
 		// Write game actions to the player's file
 		try (FileWriter fileWriter = new FileWriter(filePath, true)) {
-		    // Write the game actions, e.g., player's moves, dealer's moves
-		    fileWriter.write("Player hit\n");
-		    fileWriter.write("Dealer stay\n");
+			// Write the game actions, e.g., player's moves, dealer's moves
+			fileWriter.write("Player hit\n");
+			fileWriter.write("Dealer stay\n");
 
-		    // Flush and close the file writer
-		    fileWriter.flush();
+			// Flush and close the file writer
+			fileWriter.flush();
 		} catch (IOException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
 		}
 
-		
-		
 	}
 
 }
