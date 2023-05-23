@@ -3,13 +3,12 @@ package com.skillstorm.training;
 public class Card {
 	
 	
-	private String suit;
+	private Suit suit; //enum suit
     private int value;
     
     
     
-    public Card(String suit, int value) {
-    	Card card = new Card("Hearts", 0);
+    public Card(Suit suit, int value) {
         this.value = value;
         this.suit = suit;
         
@@ -21,7 +20,7 @@ public class Card {
         return value;
     }
 
-	public String getSuit() {
+	public Suit getSuit() {
 		return suit;
 	
 	}

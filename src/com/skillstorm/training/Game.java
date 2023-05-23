@@ -7,7 +7,7 @@ import java.io.FileWriter;
 public class Game {
 
 	public static void main(String[] args) {
-//		Main method
+//		Main method: Game logic
 //		At the start of the program, read in the names and winnings of all previous players
 //		At the start of the program, prompt the user for their name
 //		During the game, keep a record of the actions taken (create a separate file for each player and save it in a directory folder)
@@ -15,7 +15,9 @@ public class Game {
 //		Prompt the user if they would like to continue playing
 //		Shuffle the deck between each round
 //		Upon completion of a game, write to file the player's updated earnings (Optional: sort the data being saved based on winnings)
-
+		
+		System.out.println("Welcome to Lovelace's Blackjack!");
+		
 		String playerName = "Daun Kim";
 		String directoryPath = "game_records/" + playerName;
 		String filePath = directoryPath + "/game_actions.txt";
