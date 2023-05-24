@@ -63,7 +63,7 @@ public class Player {
 		// compares the scores of the player's hand and the dealer's hand
 		// using the calculateScore() method below
 		int playerScore = calculateScore(hand);
-		int dealerScore = calculateScore(dealer.getHand());
+		int dealerScore = calculateScore(hand);
 
 		// The outcome is determined based on the comparison of the scores.
 		if (playerScore > 21) {
@@ -106,6 +106,30 @@ public class Player {
 		}
 
 		return score;
+	}
+
+	public void addCard(Card deal) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getHandValue() {
+		int value = 0;
+		int aceCount = 0;
+
+		for (Card card : hand) {
+			value += card.getValue();
+			if (card.getValue() == 11) {
+				aceCount++;
+			}
+		}
+
+		while (value > 21 && aceCount > 0) {
+			value -= 10;
+			aceCount--;
+		}
+
+		return value;
 	}
 
 }
