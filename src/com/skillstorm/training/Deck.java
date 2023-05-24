@@ -10,7 +10,12 @@ public class Deck {
 		
 		private Card dealtCard;
 		private int numberOfCards = 312;
-		private static List<List<Card>> deckOfCards;
+		private static Deck deckOfCards;
+		
+
+		private Deck(Deck deckOfCards) {
+			Deck.deckOfCards = initialDeck();
+		}
 		
 		public Deck() {}
 		public Deck(Card dealtCard, int numberOfCards, List<List<Card>> deckOfCards){
@@ -46,11 +51,16 @@ public class Deck {
 		}
 		
 		public static List<List<Card>> initialDeck() {
-			List<Card> startingDeck = new ArrayList<>();
-			startingDeck.add(new Card("Diamond", 2));
-			startingDeck.add(new Card("Diamond", 3));
-			startingDeck.add(new Card("Diamond", 4));
-			startingDeck.add(new Card("Diamond", 5));
+			List<Card> startingDeck = new ArrayList<Card>();
+			startingDeck.add(new Card(DIAMOND, 2));
+			startingDeck.add(new Card(DIAMOND, 3));
+			startingDeck.add(new Card(DIAMOND, 4));
+			startingDeck.add(new Card(DIAMOND, 5));
+			startingDeck.add(new Card(DIAMOND, 6));
+			startingDeck.add(new Card(DIAMOND, 7));
+			startingDeck.add(new Card(DIAMOND, 8));
+			startingDeck.add(new Card(DIAMOND, 9));
+			startingDeck.add(new Card(DIAMOND, 10));
 			startingDeck.add(new Card("Diamond", 6));
 			startingDeck.add(new Card("Diamond", 7));
 			startingDeck.add(new Card("Diamond", 8));
@@ -109,6 +119,9 @@ public class Deck {
 			initialDeck.add(startingDeck);
 			return initialDeck;
 		}
+//		public Card[] newDeck() {
+//			
+//		}
 
 
 
@@ -139,6 +152,12 @@ public class Deck {
 			
 			return dealtCard;
 			
+		}
+		public Card draw() throws EmptyDeckException
+		{
+				if(initialDeck.size() < 1)
+					throw new EmptyDeckException("The deck is empty !");
+				return initialDeck.pollFirst();
 		}
 //		  public void deal(){
 //			    for (int i = 0; i < 52; i++) {
