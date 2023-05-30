@@ -1,23 +1,31 @@
 package com.skillstorm.training;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.List;
 
 public class Deck {
 
 		
 		private Card dealtCard;
 		private int numberOfCards = 312;
-		private static List<List<Card>> deckOfCards;
+		private static Deck deckOfCards;
+		
+
+		private Deck(Deck deckOfCards) {
+			Deck.deckOfCards = initialDeck();
+		}
 		
 		public Deck() {}
 		public Deck(Card dealtCard, int numberOfCards, List<List<Card>> deckOfCards){
 			this.dealtCard = dealtCard;
 			// implement method?
 			this.numberOfCards = numberOfCards;
-			Deck.deckOfCards = initialDeck();
+			Deck.deckOfCards = startingDeck();
 			}
 		public Card getDealtCard() {
 			getDeckOfCards();
@@ -46,74 +54,81 @@ public class Deck {
 		}
 		
 		public static List<List<Card>> initialDeck() {
-			List<Card> startingDeck = new ArrayList<>();
-			startingDeck.add(new Card("Diamond", 2));
-			startingDeck.add(new Card("Diamond", 3));
-			startingDeck.add(new Card("Diamond", 4));
-			startingDeck.add(new Card("Diamond", 5));
-			startingDeck.add(new Card("Diamond", 6));
-			startingDeck.add(new Card("Diamond", 7));
-			startingDeck.add(new Card("Diamond", 8));
-			startingDeck.add(new Card("Diamond", 9));
-			startingDeck.add(new Card("Diamond", 10));
-			startingDeck.add(new Card("Diamond / Jack", 10));
-			startingDeck.add(new Card("Diamond / Queen", 10));
-			startingDeck.add(new Card("Diamond / King", 10));
-			startingDeck.add(new Card("Club", 2));
-			startingDeck.add(new Card("Club", 3));
-			startingDeck.add(new Card("Club", 4));
-			startingDeck.add(new Card("Club", 5));
-			startingDeck.add(new Card("Club", 6));
-			startingDeck.add(new Card("Club", 7));
-			startingDeck.add(new Card("Club", 8));
-			startingDeck.add(new Card("Club", 9));
-			startingDeck.add(new Card("Club", 10));
-			startingDeck.add(new Card("Club / Jack", 10));
-			startingDeck.add(new Card("Club / Queen", 10));
-			startingDeck.add(new Card("Club/ King", 10));
-			startingDeck.add(new Card("Spade", 2));
-			startingDeck.add(new Card("Spade", 3));
-			startingDeck.add(new Card("Spade", 4));
-			startingDeck.add(new Card("Spade", 5));
-			startingDeck.add(new Card("Spade", 6));
-			startingDeck.add(new Card("Spade", 7));
-			startingDeck.add(new Card("Spade", 8));
-			startingDeck.add(new Card("Spade", 9));
-			startingDeck.add(new Card("Spade", 10));
-			startingDeck.add(new Card("Spade / Jack", 10));
-			startingDeck.add(new Card("Spade / Queen", 10));
-			startingDeck.add(new Card("Spade / King", 10));
-			startingDeck.add(new Card("Heart", 2));
-			startingDeck.add(new Card("Heart", 3));
-			startingDeck.add(new Card("Heart", 4));
-			startingDeck.add(new Card("Heart", 5));
-			startingDeck.add(new Card("Heart", 6));
-			startingDeck.add(new Card("Heart", 7));
-			startingDeck.add(new Card("Heart", 8));
-			startingDeck.add(new Card("Heart", 9));
-			startingDeck.add(new Card("Heart", 10));
-			startingDeck.add(new Card("Heart / Jack", 10));
-			startingDeck.add(new Card("Heart / Queen", 10));
-			startingDeck.add(new Card("Heart / King", 10));
-			startingDeck.add(new Card("Heart Ace", 0));
-			startingDeck.add(new Card("Diamond Ace", 0));
-			startingDeck.add(new Card("Club Ace", 0));
-			startingDeck.add(new Card("Spade Ace", 0));
-			// when implementing the deck, make sure only six copies are made
-			List<List<Card>> initialDeck = new ArrayList<>();
-			initialDeck.add(startingDeck);
-			initialDeck.add(startingDeck);
-			initialDeck.add(startingDeck);
-			initialDeck.add(startingDeck);
-			initialDeck.add(startingDeck);
-			initialDeck.add(startingDeck);
-			return initialDeck;
+			List<Card> startingDeck = new ArrayList<Card>();
+			startingDeck.add(new Card(Suit.DIAMONDS, 2));
+			startingDeck.add(new Card(Suit.DIAMONDS, 3));
+			startingDeck.add(new Card(Suit.DIAMONDS, 4));
+			startingDeck.add(new Card(Suit.DIAMONDS, 5));
+			startingDeck.add(new Card(Suit.DIAMONDS, 6));
+			startingDeck.add(new Card(Suit.DIAMONDS, 7));
+			startingDeck.add(new Card(Suit.DIAMONDS, 8));
+			startingDeck.add(new Card(Suit.DIAMONDS, 9));
+			startingDeck.add(new Card(Suit.DIAMONDS, 10));
+			startingDeck.add(new Card(Suit.JACK_OF_DIAMONDS, 10));
+			startingDeck.add(new Card(Suit.QUEEN_OF_DIAMONDS, 10));
+			startingDeck.add(new Card(Suit.KING_OF_DIAMONDS, 10));
+			startingDeck.add(new Card(Suit.DIAMOND_ACE, _));
+			startingDeck.add(new Card(Suit.CLUBS, 2));
+			startingDeck.add(new Card(Suit.CLUBS, 3));
+			startingDeck.add(new Card(Suit.CLUBS, 4));
+			startingDeck.add(new Card(Suit.CLUBS, 5));
+			startingDeck.add(new Card(Suit.CLUBS, 6));
+			startingDeck.add(new Card(Suit.CLUBS, 7));
+			startingDeck.add(new Card(Suit.CLUBS, 8));
+			startingDeck.add(new Card(Suit.CLUBS, 9));
+			startingDeck.add(new Card(Suit.CLUBS, 10));
+			startingDeck.add(new Card(Suit.JACK_OF_CLUBS, 10));
+			startingDeck.add(new Card(Suit.QUEEN_OF_CLUBS, 10));
+			startingDeck.add(new Card(Suit.KING_OF_CLUBS, 10));
+			startingDeck.add(new Card(Suit.CLUB_ACE, _));
+			startingDeck.add(new Card(Suit.SPADES, 2));
+			startingDeck.add(new Card(Suit.SPADES, 3));
+			startingDeck.add(new Card(Suit.SPADES, 4));
+			startingDeck.add(new Card(Suit.SPADES, 5));
+			startingDeck.add(new Card(Suit.SPADES, 6));
+			startingDeck.add(new Card(Suit.SPADES, 7));
+			startingDeck.add(new Card(Suit.SPADES, 8));
+			startingDeck.add(new Card(Suit.SPADES, 9));
+			startingDeck.add(new Card(Suit.SPADES, 10));
+			startingDeck.add(new Card(Suit.JACK_OF_SPADES, 10));
+			startingDeck.add(new Card(Suit.QUEEN_OF_SPADES, 10));
+			startingDeck.add(new Card(Suit.KING_OF_SPADES, 10));
+			startingDeck.add(new Card(Suit.SPADE_ACE, _));
+			startingDeck.add(new Card(Suit.HEARTS, 2));
+			startingDeck.add(new Card(Suit.HEARTS, 3));
+			startingDeck.add(new Card(Suit.HEARTS, 4));
+			startingDeck.add(new Card(Suit.HEARTS, 5));
+			startingDeck.add(new Card(Suit.HEARTS, 6));
+			startingDeck.add(new Card(Suit.HEARTS, 7));
+			startingDeck.add(new Card(Suit.HEARTS, 8));
+			startingDeck.add(new Card(Suit.HEARTS, 9));
+			startingDeck.add(new Card(Suit.HEARTS, 10));
+			startingDeck.add(new Card(Suit.JACK_OF_HEARTS, 10));
+			startingDeck.add(new Card(Suit.QUEEN_OF_HEARTS, 10));
+			startingDeck.add(new Card(Suit.KING_OF_HEARTS, 10));
+			startingDeck.add(new Card(Suit.HEART_ACE, _));
+			
+			return startingDeck;
 		}
+//		public Card[] newDeck() {
+//			
+//		}
+//		System.out.println("Welcome to Blackjack.");
+//
+//        Random rand = new Random();
+//
+//        int value1 = (int) (Math.random() * );
+//        Suit firstCardSuit = (int) (Math.random() *);
+//        int value2 = (int) (Math.random() * );
+//        Suit secondCardSuit = (int) (Math.random() *);
+//
+//        if suit == HEART ...
+//
+//        System.out.print(card(firstCardSuit, int value1]);
 
 
 
-
-		public static Card choosingAces() {
+		public static int choosingAces(Card card?) {
 			Scanner in = new Scanner(System.in);
 			if (new Card() == new Card("Ace", 0)) {
 				System.out.println("Would you like your Ace to count as a 1 or 10?\nPlease enter below:");
@@ -140,10 +155,16 @@ public class Deck {
 			return dealtCard;
 			
 		}
+		public Card draw() throws EmptyDeckException
+		{
+				if(initialDeck.size() < 1)
+					throw new EmptyDeckException("The deck is empty !");
+				return initialDeck.pollFirst();
+		}
 //		  public void deal(){
 //			    for (int i = 0; i < 52; i++) {
-//			       String suit = suits[deck[i] / 13];
-//			       String rank = ranks[deck[i] % 13];
+//			       String suit = suits[deck[i] / 10];
+//			       String rank = ranks[deck[i] % 10];
 //			       System.out.println( rank + " of " + suit);
 //			       System.out.println("Remaining cards: " + remainingCards);
 //			     }
